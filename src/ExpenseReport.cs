@@ -21,13 +21,13 @@
 
             foreach (Expense expense in expenses)
             {
-                if (IsMeal(expense))
+                if (expense.IsMeal)
                 {
-                    mealExpenses += expense.amount;
+                    mealExpenses += expense.Amount;
                 }
 
                 String expenseName = "";
-                switch (expense.type)
+                switch (expense.Type)
                 {
                     case ExpenseType.DINNER:
                         expenseName = "Dinner";
@@ -41,23 +41,19 @@
                 }
 
                 String mealOverExpensesMarker =
-                    expense.type == ExpenseType.DINNER && expense.amount > 5000 ||
-                    expense.type == ExpenseType.BREAKFAST && expense.amount > 1000
+                    expense.Type == ExpenseType.DINNER && expense.Amount > 5000 ||
+                    expense.Type == ExpenseType.BREAKFAST && expense.Amount > 1000
                         ? "X"
                         : " ";
 
-                Console.WriteLine(expenseName + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
+                Console.WriteLine(expenseName + "\t" + expense.Amount + "\t" + mealOverExpensesMarker);
 
-                total += expense.amount;
+                total += expense.Amount;
             }
 
             Console.WriteLine("Meal expenses: " + mealExpenses);
             Console.WriteLine("Total expenses: " + total);
         }
 
-        private static bool IsMeal(Expense expense)
-        {
-            return expense.type == ExpenseType.DINNER || expense.type == ExpenseType.BREAKFAST;
-        }
     }
 }

@@ -67,9 +67,9 @@ public class ExpenseReportShould
         Assert.Equal(expectedOutput, _stringWriter.ToString());
     }
     private static Expense CreateExpense(string expenseType, int cost) =>
-        new Expense { amount = cost, type = Enum.Parse<ExpenseType>(expenseType) };
+        new Expense { Amount = cost, Type = Enum.Parse<ExpenseType>(expenseType) };
     private static Expense CreateExpense(int cost, ExpenseType expenseType) =>
-        new Expense { amount = cost, type = expenseType };
+        new Expense { Amount = cost, Type = expenseType };
     private static List<Expense> CreateExpenseList(params Expense[] expenses) =>
         expenses.ToList();
 }
