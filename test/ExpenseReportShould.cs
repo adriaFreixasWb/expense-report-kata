@@ -67,9 +67,27 @@ public class ExpenseReportShould
         Assert.Equal(expectedOutput, _stringWriter.ToString());
     }
     private static Expense CreateExpense(string expenseType, int cost) =>
-        new Expense { Amount = cost, Type = Enum.Parse<ExpenseType>(expenseType) };
+        new Expense { Amount = cost, Type = ToExpenseType(expenseType) };
+
+
     private static Expense CreateExpense(int cost, ExpenseType expenseType) =>
         new Expense { Amount = cost, Type = expenseType };
     private static List<Expense> CreateExpenseList(params Expense[] expenses) =>
         expenses.ToList();
+    private static ExpenseType? ToExpenseType(string expenseType)
+    {
+        if (expenseType == "DINNER")
+        {
+            return ExpenseType.DINNER;
+        }
+        if (expenseType == "BREAKFAST")
+        {
+            return ExpenseType.BREAKFAST;
+        }
+        if (expenseType == "CAR_RENTAL")
+        {
+            return ExpenseType.CAR_RENTAL;
+        }
+        return null;
+    }
 }

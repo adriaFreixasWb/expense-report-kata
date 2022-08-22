@@ -12,25 +12,9 @@
         }
         public bool IsOverLimit
         {
-            get => 
-            Type == ExpenseType.DINNER && Amount > 5000 ||
-            Type == ExpenseType.BREAKFAST && Amount > 1000;
+            get =>  Amount > Type.Limit ;
         }
-        public string ToExpenseName()
-        {
-            if(Type == ExpenseType.DINNER)
-            { 
-                return "Dinner"; 
-            }
-            if (Type == ExpenseType.BREAKFAST)
-            {
-                return "Breakfast";
-            }
-            if (Type == ExpenseType.CAR_RENTAL)
-            {
-                return "Car Rental";
-            }
-            return string.Empty;
-        }            
+        public string ToExpenseName() =>
+            Type.Name;
     }
 }
