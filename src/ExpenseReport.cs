@@ -5,12 +5,6 @@
         DINNER, BREAKFAST, CAR_RENTAL
     }
 
-    public class Expense
-    {
-        public ExpenseType type;
-        public int amount;
-    }
-
     public class ExpenseReport
     {
         public void PrintReport(List<Expense> expenses)
@@ -27,7 +21,7 @@
 
             foreach (Expense expense in expenses)
             {
-                if (expense.type == ExpenseType.DINNER || expense.type == ExpenseType.BREAKFAST)
+                if (IsMeal(expense))
                 {
                     mealExpenses += expense.amount;
                 }
@@ -59,6 +53,11 @@
 
             Console.WriteLine("Meal expenses: " + mealExpenses);
             Console.WriteLine("Total expenses: " + total);
+        }
+
+        private static bool IsMeal(Expense expense)
+        {
+            return expense.type == ExpenseType.DINNER || expense.type == ExpenseType.BREAKFAST;
         }
     }
 }
