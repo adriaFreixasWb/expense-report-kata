@@ -6,8 +6,15 @@
         public int Amount { get; set; }
         public bool IsMeal
         {
-            get => Type == ExpenseType.DINNER || 
+            get => 
+                Type == ExpenseType.DINNER ||
                 Type == ExpenseType.BREAKFAST;
+        }
+        public bool IsOverLimit
+        {
+            get => 
+            Type == ExpenseType.DINNER && Amount > 5000 ||
+            Type == ExpenseType.BREAKFAST && Amount > 1000;
         }
         public string ToExpenseName()
         {
@@ -24,6 +31,6 @@
                 return "Car Rental";
             }
             return string.Empty;
-        }
+        }            
     }
 }
