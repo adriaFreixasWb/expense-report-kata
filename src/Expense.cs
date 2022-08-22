@@ -9,5 +9,21 @@
             get => Type == ExpenseType.DINNER || 
                 Type == ExpenseType.BREAKFAST;
         }
+        public string ToExpenseName()
+        {
+            if(Type == ExpenseType.DINNER)
+            { 
+                return "Dinner"; 
+            }
+            if (Type == ExpenseType.BREAKFAST)
+            {
+                return "Breakfast";
+            }
+            if (Type == ExpenseType.CAR_RENTAL)
+            {
+                return "Car Rental";
+            }
+            return string.Empty;
+        }
     }
 }
