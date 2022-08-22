@@ -22,13 +22,7 @@
                     mealExpenses += expense.Amount;
                 }
 
-                string expenseName = expense.ToExpenseName();
-
-                String mealOverExpensesMarker = expense.IsOverLimit
-                        ? "X"
-                        : " ";
-
-                Console.WriteLine(expenseName + "\t" + expense.Amount + "\t" + mealOverExpensesMarker);
+                Console.WriteLine(ToExpenseReportLine(expense));
 
                 total += expense.Amount;
             }
@@ -37,6 +31,13 @@
             Console.WriteLine("Total expenses: " + total);
         }
 
-        
+        public string ToExpenseReportLine(Expense expense) =>
+             expense.ToExpenseName() + "\t" + expense.Amount + "\t" +
+            GetIsOverLimitDisplay(expense);
+
+        private string GetIsOverLimitDisplay(Expense expense) =>
+            expense.IsOverLimit 
+            ? "X"
+            : " ";
     }
 }

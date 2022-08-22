@@ -2,9 +2,10 @@
 {
     public record ExpenseType
     {
-        public static ExpenseType DINNER { get; } = new ExpenseType("Dinner", true, 5000);
         public static ExpenseType BREAKFAST { get; } = new ExpenseType("Breakfast", true, 1000);
-        public static ExpenseType CAR_RENTAL { get; } = new ExpenseType("Car Rental", true, int.MaxValue);
+        public static ExpenseType CAR_RENTAL { get; } = new ExpenseType("Car Rental", false, int.MaxValue);
+        public static ExpenseType DINNER { get; } = new ExpenseType("Dinner", true, 5000);
+        public static ExpenseType LUNCH { get; } = new ExpenseType("Lunch", true, 2000);
 
         public string Name { get; }
         public bool IsMeal { get; }

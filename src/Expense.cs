@@ -6,9 +6,7 @@
         public int Amount { get; set; }
         public bool IsMeal
         {
-            get => 
-                Type == ExpenseType.DINNER ||
-                Type == ExpenseType.BREAKFAST;
+            get => Type.IsMeal;
         }
         public bool IsOverLimit
         {

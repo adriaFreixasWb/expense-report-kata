@@ -34,6 +34,7 @@ public class ExpenseReportShould
 
     [Theory]
     [InlineData("DINNER", 5000, "Dinner", 5000)]
+    [InlineData("LUNCH", 2000, "Lunch", 2000)]
     [InlineData("BREAKFAST", 1000, "Breakfast", 1000)]
     [InlineData("CAR_RENTAL", 10000, "Car Rental", 0)]
     public void Print_Accepted_Expensese(string expenseType, int cost, string expectedExpense, int exptectedMealExpense)
@@ -79,6 +80,10 @@ public class ExpenseReportShould
         if (expenseType == "DINNER")
         {
             return ExpenseType.DINNER;
+        }
+        if(expenseType == "LUNCH")
+        {
+            return ExpenseType.LUNCH;
         }
         if (expenseType == "BREAKFAST")
         {
