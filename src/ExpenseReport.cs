@@ -28,9 +28,7 @@
 
                 string expenseName = expense.ToExpenseName();
 
-                String mealOverExpensesMarker =
-                    expense.Type == ExpenseType.DINNER && expense.Amount > 5000 ||
-                    expense.Type == ExpenseType.BREAKFAST && expense.Amount > 1000
+                String mealOverExpensesMarker = IsOverLimit(expense)
                         ? "X"
                         : " ";
 
@@ -43,6 +41,8 @@
             Console.WriteLine("Total expenses: " + total);
         }
 
-       
+        private static bool IsOverLimit(Expense expense) =>
+            expense.Type == ExpenseType.DINNER && expense.Amount > 5000 ||
+            expense.Type == ExpenseType.BREAKFAST && expense.Amount > 1000;
     }
 }
