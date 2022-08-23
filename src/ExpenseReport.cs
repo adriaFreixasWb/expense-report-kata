@@ -22,7 +22,7 @@
                     mealExpenses += expense.Amount;
                 }
 
-                Console.WriteLine(ToExpenseReportLine(expense));
+                Console.WriteLine(ComposeReportLine(expense));
 
                 total += expense.Amount;
             }
@@ -31,7 +31,7 @@
             Console.WriteLine("Total expenses: " + total);
         }
 
-        public string ToExpenseReportLine(Expense expense) =>
+        public string ComposeReportLine(Expense expense) =>
              expense.ToExpenseName() + "\t" + expense.Amount + "\t" +
             GetIsOverLimitDisplay(expense);
 
